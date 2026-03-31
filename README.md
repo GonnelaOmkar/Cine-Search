@@ -1,3 +1,45 @@
+# CineSearch 🎬
+A responsive movie discovery app built with React.
+
+## Live Demo
+🔗 https://cine-search-psi.vercel.app
+
+## Features
+- Live search with debouncing
+- Genre-based filtering
+- Persistent Watchlist via localStorage
+- Real-time data from TMDb API
+
+## Tech Stack
+React · Axios · React Router · TMDb API · Vercel
+
+## Setup
+npm install
+npm start
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 # React + Vite
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
