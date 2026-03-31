@@ -62,8 +62,12 @@ const MovieDetails = () => {
     return `${h}h ${m}m`;
   };
 
-  const backdropUrl = movie.backdrop_path ? `${IMAGE_BASE_URL}${movie.backdrop_path}` : null;
-  const posterUrl = movie.poster_path ? `${POSTER_BASE_URL}${movie.poster_path}` : 'https://via.placeholder.com/500x750?text=No+Poster';
+  const backdropUrl = movie.backdrop_path 
+    ? (movie.backdrop_path.startsWith('http') ? movie.backdrop_path : `${IMAGE_BASE_URL}${movie.backdrop_path}`) 
+    : null;
+  const posterUrl = movie.poster_path 
+    ? (movie.poster_path.startsWith('http') ? movie.poster_path : `${POSTER_BASE_URL}${movie.poster_path}`) 
+    : 'https://via.placeholder.com/500x750?text=No+Poster';
 
   return (
     <>
@@ -98,8 +102,8 @@ const MovieDetails = () => {
               <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
                 <Star style={{ color: '#fbbf24' }} size={20} />
                 <span style={{ fontWeight: 600, color: '#fff' }}>
-                  {movie.vote_average.toFixed(1)} 
-                  <span style={{ fontSize: '0.875rem', fontWeight: 400, color: 'var(--text-secondary)' }}>/10</span>
+                  {movie.vote_average != null ? movie.vote_average.toFixed(1) : 'NR'} 
+                  {movie.vote_average != null && <span style={{ fontSize: '0.875rem', fontWeight: 400, color: 'var(--text-secondary)' }}>/10</span>}
                 </span>
               </div>
               <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>

@@ -8,7 +8,7 @@ const MovieCard = ({ movie }) => {
   const [imageError, setImageError] = React.useState(false);
 
   const posterUrl = movie.poster_path
-    ? `${IMAGE_BASE_URL}${movie.poster_path}`
+    ? (movie.poster_path.startsWith('http') ? movie.poster_path : `${IMAGE_BASE_URL}${movie.poster_path}`)
     : null;
 
   const releaseYear = movie.release_date
