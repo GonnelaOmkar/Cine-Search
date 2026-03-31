@@ -1,7 +1,7 @@
 import axios from 'axios';
 
-const API_KEY = "5e39a9c2";
-const BASE_URL = 'http://www.omdbapi.com/';
+const API_KEY = import.meta.env.VITE_OMDB_API_KEY;
+const BASE_URL = 'https://www.omdbapi.com/';
 
 const omdbApi = axios.create({
   baseURL: BASE_URL,
@@ -35,7 +35,7 @@ export const getTrending = async () => {
     // OMDb doesn't have a trending endpoint, so we search for a popular keyword like 'Batman'
     const response = await omdbApi.get('', {
       params: {
-        s: 'batman',
+        s: 'marvel',
         type: 'movie',
       }
     });
